@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nossa Viagem para a Geórgia</title>
+<meta name="description" content="Planejamento da viagem de casal de 12 dias pela Geórgia — gastronomia, vinhedos e vilarejos do Cáucaso, Maio 2027." />
+
+<style>
+  :root{
+    --bg: #FAF8F5;
+    --bg-soft: #F3EFE8;
+    --surface: #FFFFFF;
+    --surface-2: #F1ECE3;
+    --ink: #2B2620;
+    --ink-muted: #6E6455;
+    --ink-faint: #9C9284;
+    --line: rgba(43,38,32,0.13);
+    --line-soft: rgba(43,38,32,0.07);
+
+    --red: #DC2626;
+    --red-deep: #B91C1C;
+    --red-tint: #FBE9E9;
+
+    --olive: #6B7345;
+    --olive-deep: #4B532F;
+    --olive-tint: #E3E6D4;
+
+    --terracotta: #B5652D;
+    --terracotta-deep: #8C4B1F;
+    --terracotta-tint: #F3E4D4;
+
+    --grape: #5B2A5E;
+    --grape-deep: #452047;
+    --grape-tint: #EBDFEC;
+
+    --gold: #8C5A1E;
+    --gold-line: #C99A52;
+    --gold-tint: #F3E7D0;
+
+    --shadow: 0 1px 2px rgba(43,38,32,0.05), 0 12px 28px -16px rgba(43,38,32,0.18);
+    --shadow-lg: 0 24px 48px -24px rgba(43,38,32,0.28);
+    --radius: 18px;
+    --radius-sm: 12px;
+    --font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; color-scheme: light; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  }
+
+  body{
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+  }
+
+  a{ color: inherit; }
+  :focus-visible{ outline: 2px solid var(--red); outline-offset: 2px; border-radius: 4px; }
+
+  .wrap{ max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+
+  .eyebrow{
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--terracotta-deep);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .eyebrow::before{
+    content: "";
+    width: 18px; height: 1px;
+    background: var(--terracotta-deep);
+    display: inline-block;
+  }
+
+  h1, h2, h3{ font-family: var(--font-display); font-weight: 600; text-wrap: balance; margin: 0; color: var(--ink); }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--line-soft);
+    background: linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 72%);
+  }
+  .hero-inner{
+    position: relative;
+    z-index: 2;
+    padding: 96px 28px 64px;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .hero h1{
+    font-size: clamp(2.4rem, 5vw + 1rem, 4rem);
+    margin-top: 18px;
+    letter-spacing: -0.01em;
+  }
+  .hero p.sub{
+    margin-top: 20px;
+    font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+    color: var(--ink-muted);
+    max-width: 46ch;
+  }
+  .status-card{
+    margin-top: 40px;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--red);
+    border-radius: 14px;
+    padding: 14px 22px 14px 18px;
+    box-shadow: var(--shadow);
+  }
+  .status-card .status-text{ font-size: 0.92rem; color: var(--ink-muted); }
+  .status-card .status-text strong{ font-weight: 600; color: var(--ink); }
+
+  .peaks{
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    width: 100%; height: auto;
+    z-index: 1;
+    opacity: 0.9;
+  }
+
+  /* ---------- SECTION HEADS ---------- */
+  .section-head{ margin-bottom: 36px; max-width: 62ch; }
+  .section-head h2{ font-size: clamp(1.5rem, 2.4vw, 1.9rem); margin-top: 10px; }
+  .section-head p{ margin-top: 12px; color: var(--ink-muted); font-size: 1rem; }
+  .section-head-sm{ margin-bottom: 20px; }
+  .section-head-sm h2{ font-family: var(--font-display); font-weight: 600; font-size: 1.35rem; margin-top: 6px; }
+
+  /* ---------- LAYOUT GRID ---------- */
+  .layout{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "checklist"
+      "sidebar"
+      "itinerary";
+    gap: 72px;
+    padding: 80px 0 96px;
+  }
+  #checklist{ grid-area: checklist; }
+  #itinerary{ grid-area: itinerary; padding-top: 8px; border-top: 1px solid var(--line-soft); }
+  #budget{ grid-area: sidebar; }
+
+  @media (min-width: 960px){
+    .layout{
+      grid-template-columns: minmax(0, 1fr) 320px;
+      grid-template-areas:
+        "checklist sidebar"
+        "itinerary sidebar";
+      gap: 56px 48px;
+      padding: 96px 0 112px;
+    }
+    #itinerary{ padding-top: 56px; }
+    #budget{ position: sticky; top: 28px; align-self: start; }
+  }
+
+  /* ---------- TABS ---------- */
+  .tablist{
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 28px;
+  }
+  .tablist::-webkit-scrollbar{ display: none; }
+
+  .tab{
+    appearance: none;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    border-radius: 10px 10px 0 0;
+    cursor: pointer;
+    padding: 13px 18px 12px;
+    min-width: 158px;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: left;
+    font-family: var(--font-body);
+    color: var(--ink-muted);
+    transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+  }
+  .tab:hover{ background: var(--surface-2); color: var(--ink); }
+  .tab.active{
+    color: var(--red-deep);
+    border-bottom-color: var(--red);
+    background: var(--red-tint);
+  }
+  .tab-top{ display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .tab-phase{ font-size: 0.66rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.75; }
+  .tab-badge{
+    font-size: 0.66rem; font-weight: 700; padding: 1px 7px; border-radius: 999px;
+    background: var(--surface-2); color: var(--ink-muted); font-variant-numeric: tabular-nums;
+    flex-shrink: 0;
+  }
+  .tab-badge.complete{ background: var(--olive-tint); color: var(--olive-deep); }
+  .tab-name{ font-size: 0.98rem; font-weight: 600; color: inherit; }
+  .tab-date{ font-size: 0.75rem; color: var(--ink-faint); }
+  .tab.active .tab-date{ color: var(--red-deep); opacity: 0.75; }
+
+  .panel[hidden]{ display: none; }
+
+  .progress-row{
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 24px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    padding: 14px 18px;
+    box-shadow: var(--shadow);
+  }
+  .progress-track{
+    flex: 1; height: 6px; border-radius: 999px;
+    background: var(--surface-2);
+    overflow: hidden;
+  }
+  .progress-fill{
+    height: 100%; border-radius: 999px;
+    background: linear-gradient(90deg, var(--olive), var(--olive-deep));
+    width: 0%;
+    transition: width 0.4s ease;
+  }
+  .progress-label{
+    font-size: 0.82rem; color: var(--ink-muted); white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .card{
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+  .check-list{ list-style: none; margin: 0; padding: 4px; }
+  .check-row{
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 16px;
+    border-radius: var(--radius-sm);
+  }
+  .check-row + .check-row{ border-top: 1px solid var(--line-soft); }
+
+  .chk{
+    -webkit-appearance: none; appearance: none;
+    width: 22px; height: 22px;
+    border-radius: 7px;
+    border: 1.5px solid var(--ink-faint);
+    background: var(--surface);
+    flex-shrink: 0;
+    margin-top: 1px;
+    cursor: pointer;
+    display: grid;
+    place-content: center;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+  .chk::before{
+    content: "";
+    width: 12px; height: 12px;
+    clip-path: polygon(14% 44%, 0 63%, 40% 100%, 100% 16%, 84% 0%, 38% 70%);
+    background: var(--surface);
+    transform: scale(0);
+    transition: transform 0.15s ease;
+  }
+  .chk:checked{ background: var(--olive); border-color: var(--olive); }
+  .chk:checked::before{ transform: scale(1); }
+
+  .check-row label{ font-size: 0.98rem; cursor: pointer; }
+  .check-row.done label{ color: var(--ink-faint); text-decoration: line-through; text-decoration-color: var(--line); text-decoration-thickness: 1.5px; }
+
+  .tag{
+    display: inline-block;
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--red-deep);
+    background: var(--red-tint);
+    border-radius: 999px;
+    padding: 2px 8px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  /* ---------- BUDGET SIDEBAR ---------- */
+  .budget-cards{ display: flex; flex-direction: column; gap: 12px; }
+  .budget-card{
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow);
+    padding: 15px 16px;
+    display: flex;
+    gap: 13px;
+    align-items: flex-start;
+  }
+  .budget-icon{
+    width: 34px; height: 34px;
+    border-radius: 10px;
+    display: grid;
+    place-content: center;
+    flex-shrink: 0;
+  }
+  .budget-icon svg{ width: 18px; height: 18px; }
+  .icon-olive{ background: var(--olive-tint); color: var(--olive-deep); }
+  .icon-terracotta{ background: var(--terracotta-tint); color: var(--terracotta-deep); }
+  .icon-grape{ background: var(--grape-tint); color: var(--grape-deep); }
+
+  .budget-body{ flex: 1; min-width: 0; }
+  .budget-name{ font-weight: 600; font-size: 0.92rem; }
+  .budget-note{ font-size: 0.76rem; color: var(--ink-muted); margin-top: 2px; }
+  .budget-value{ font-variant-numeric: tabular-nums; font-size: 0.84rem; color: var(--ink-muted); margin-top: 9px; }
+  .budget-bar{ height: 4px; border-radius: 999px; background: var(--surface-2); overflow: hidden; margin-top: 6px; }
+  .budget-bar span{ display: block; height: 100%; border-radius: 999px; background: var(--olive); }
+
+  .budget-total{
+    margin-top: 14px;
+    background: var(--gold-tint);
+    border: 1.5px solid var(--gold-line);
+    border-radius: var(--radius-sm);
+    padding: 18px 20px;
+    box-shadow: var(--shadow);
+  }
+  .budget-total .label{ font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--ink-muted); }
+  .budget-total .amount{ font-family: var(--font-display); font-size: 1.7rem; font-weight: 600; color: var(--gold); margin-top: 4px; font-variant-numeric: tabular-nums; }
+
+  /* ---------- ITINERARY ---------- */
+  .route{ position: relative; }
+  .route::before{
+    content: "";
+    position: absolute;
+    left: 21px; top: 10px; bottom: 10px;
+    width: 0;
+    border-left: 2px dashed var(--line);
+  }
+  .day{
+    position: relative;
+    padding-left: 56px;
+    margin-bottom: 18px;
+  }
+  .day-marker{
+    position: absolute;
+    left: 0; top: 14px;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    display: grid;
+    place-content: center;
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--terracotta-deep);
+    box-shadow: var(--shadow);
+    z-index: 1;
+  }
+  details.day-card{
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  details.day-card summary{
+    list-style: none;
+    cursor: pointer;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  details.day-card summary::-webkit-details-marker{ display: none; }
+  .day-heading .day-range{
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--olive-deep);
+  }
+  .day-heading h3{ font-size: 1.12rem; margin-top: 4px; }
+  .chevron{
+    width: 18px; height: 18px;
+    flex-shrink: 0;
+    color: var(--ink-faint);
+    transition: transform 0.2s ease;
+  }
+  details.day-card[open] .chevron{ transform: rotate(180deg); }
+  .day-content{
+    padding: 0 20px 22px 20px;
+    color: var(--ink-muted);
+    font-size: 0.97rem;
+    border-top: 1px solid var(--line-soft);
+    padding-top: 16px;
+    animation: reveal 0.25s ease;
+  }
+  @keyframes reveal{ from{ opacity: 0; transform: translateY(-4px); } to{ opacity: 1; transform: translateY(0); } }
+
+  .menu-note{
+    background: var(--olive-tint);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius-sm);
+    padding: 16px 20px;
+    font-size: 0.92rem;
+    color: var(--olive-deep);
+    margin-bottom: 32px;
+  }
+
+  /* ---------- TRACK CARD ---------- */
+  #playlist{ border-top: 1px solid var(--line-soft); padding: 56px 0 88px; }
+  .track-card{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px 28px;
+    max-width: 640px;
+  }
+  .track-art{
+    width: 60px; height: 60px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--grape-tint), var(--olive-tint));
+    color: var(--grape-deep);
+    display: grid;
+    place-content: center;
+    flex-shrink: 0;
+  }
+  .track-art svg{ width: 24px; height: 24px; }
+  .track-card-body{ flex: 1 1 220px; min-width: 0; }
+  .track-card-title{ font-family: var(--font-display); font-weight: 600; font-size: 1.2rem; }
+  .track-card-artist{ font-size: 0.88rem; color: var(--ink-muted); margin-top: 2px; }
+  .track-card-links{ display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+  .track-link{
+    font-size: 0.86rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 999px;
+    border: 1.5px solid var(--grape);
+    background: var(--grape-tint);
+    color: var(--grape-deep);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+  .track-link:hover{ background: var(--grape); color: #fff; }
+  .track-link.secondary{ border-color: var(--line); background: var(--surface); color: var(--ink-muted); }
+  .track-link.secondary:hover{ border-color: var(--olive); color: var(--olive-deep); background: var(--olive-tint); }
+
+  footer{
+    padding: 0 0 64px;
+    text-align: center;
+    color: var(--ink-faint);
+    font-size: 0.84rem;
+  }
+
+  @media (max-width: 640px){
+    .hero-inner{ padding: 72px 20px 48px; }
+    .wrap{ padding: 0 20px; }
+    .layout{ padding: 56px 0 72px; gap: 56px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">Sakartvelo · Maio 2027</span>
+    <h1>Nossa Viagem para a Geórgia</h1>
+    <p class="sub">12 dias de gastronomia, vinhedos e vilarejos no Cáucaso.</p>
+    <div class="status-card">
+      <span class="status-text"><strong>Status: Documentação &amp; Passaporte da Esposa</strong> 🔴</span>
+    </div>
+  </div>
+  <svg class="peaks" viewBox="0 0 1200 220" preserveAspectRatio="none" aria-hidden="true">
+    <polyline points="0,220 0,140 120,90 210,150 300,60 420,150 520,100 640,170 760,80 880,160 980,110 1100,170 1200,120 1200,220" fill="var(--terracotta)" opacity="0.18"></polyline>
+    <polyline points="0,220 0,180 100,150 190,190 280,120 380,190 470,150 590,200 690,140 800,195 900,160 1020,200 1120,150 1200,190 1200,220" fill="var(--olive)" opacity="0.3"></polyline>
+  </svg>
+</div>
+
+<main class="wrap">
+  <div class="layout">
+
+    <section id="checklist" aria-labelledby="checklist-heading">
+      <div class="section-head">
+        <span class="eyebrow">Preparativos</span>
+        <h2 id="checklist-heading">O que precisa ser feito</h2>
+        <p>Do passaporte às malas, organizado em quatro fases. Avance pelas abas conforme os prazos se aproximam.</p>
+      </div>
+
+      <div class="tablist" role="tablist" aria-label="Fases do planejamento">
+        <button class="tab active" role="tab" id="tab-1" aria-controls="panel-1" aria-selected="true" tabindex="0" data-tab="1">
+          <span class="tab-top"><span class="tab-phase">Fase 1</span><span class="tab-badge">0/2</span></span>
+          <span class="tab-name">Imediato</span>
+          <span class="tab-date">Set–Out 2026</span>
+        </button>
+        <button class="tab" role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1" data-tab="2">
+          <span class="tab-top"><span class="tab-phase">Fase 2</span><span class="tab-badge">0/2</span></span>
+          <span class="tab-name">Voos</span>
+          <span class="tab-date">Nov 2026</span>
+        </button>
+        <button class="tab" role="tab" id="tab-3" aria-controls="panel-3" aria-selected="false" tabindex="-1" data-tab="3">
+          <span class="tab-top"><span class="tab-phase">Fase 3</span><span class="tab-badge">0/2</span></span>
+          <span class="tab-name">Reservas</span>
+          <span class="tab-date">Dez 2026 – Jan 2027</span>
+        </button>
+        <button class="tab" role="tab" id="tab-4" aria-controls="panel-4" aria-selected="false" tabindex="-1" data-tab="4">
+          <span class="tab-top"><span class="tab-phase">Fase 4</span><span class="tab-badge">0/3</span></span>
+          <span class="tab-name">Pré-viagem</span>
+          <span class="tab-date">Abr 2027</span>
+        </button>
+      </div>
+
+      <div class="panels">
+
+        <div class="panel" id="panel-1" role="tabpanel" aria-labelledby="tab-1" data-panel="1">
+          <div class="progress-row">
+            <span class="progress-label">0 de 2 concluídos</span>
+            <div class="progress-track"><div class="progress-fill"></div></div>
+          </div>
+          <div class="card">
+            <ul class="check-list">
+              <li class="check-row">
+                <input type="checkbox" class="chk" id="p1-1" data-key="p1-1">
+                <label for="p1-1">Emitir e retirar o passaporte da esposa<span class="tag">Prioridade máxima</span></label>
+              </li>
+              <li class="check-row">
+                <input type="checkbox" class="chk" id="p1-2" data-key="p1-2">
+                <label for="p1-2">Definir as datas exatas das férias de 12 dias em maio de 2027</label>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="panel" id="panel-2" role="tabpanel" aria-labelledby="tab-2" data-panel="2" hidden>
+          <div class="progress-row">
+            <span class="progress-label">0 de 2 concluídos</span>
+            <div class="progress-track"><div class="progress-fill"></div></div>
+          </div>
+          <div class="card">
+            <ul class="check-list">
+              <li class="check-row">
+                <input type="checkbox" class="chk" id="p2-1" data-key="p2-1">
+                <label for="p2-1">Ativar e monitorar alertas de preço no Google Flights (rotas via Istambul, Doha ou Dubai)</label>
+              </li>
+              <li class="check-row">
+                <input type="checkbox" class="chk" id="p2-2" data-key="p2-2">
+                <label for="p2-2">Comprar as passagens aéreas internacionais (meta: R$ 11k–14k para o casal)</label>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="panel" id="panel-3" role="tabpanel" aria-labelledby="tab-3" data-panel="3" hidden>
+          <div class="progress-row">
+            <span class="progress-label">0 de 2 concluídos</span>
+            <div class="progress-track"><div class="progress-fill"></div></div>
+          </div>
+          <div class="card">
+            <ul class="check-list">
+              <li class="check-row">
+                <input type="checkbox" class="chk" id="p3-1" data-key="p3-1">
+                <label for="p3-1">Reservar hotéis/guesthouses boutique em Tbilisi, Kazbegi e Signagi, com cancelamento grátis</label>
+              </li>
+              <li class="check-row">
+                <input type="checkbox" class="chk" id="p3-2" data-key="p3-2">
+                <label for="p3-2">Rascunhar a dinâmica de transporte local — motorista privado (GoTrip) ou aluguel de carro</label>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="panel" id="panel-4" role="tabpanel" aria-labelledby="tab-4" data-panel="4" hidden>
+          <div class="progress-row">
+            <span class="progress-label">0 de 3 concluídos</span>
+            <div class="progress-track"><div class="progress-fill"></div></div>
+          </div>
+          <div class="card">
+            <ul class="check-list">
+              <li class="check-row">
+                <input type="checkbox" class="chk" id="p4-1" data-key="p4-1">
+                <label for="p4-1">Contratar seguro viagem obrigatório (mínimo exigido: 30.000 GEL)<span class="tag">Obrigatório</span></label>
+              </li>
+              <li class="check-row">
+                <input type="checkbox" class="chk" id="p4-2" data-key="p4-2">
+                <label for="p4-2">Configurar cartões internacionais e acompanhar a cotação do Lari Georgiano (GEL)</label>
+              </li>
+              <li class="check-row">
+                <input type="checkbox" class="chk" id="p4-3" data-key="p4-3">
+                <label for="p4-3">Organizar checklist de malas para clima dinâmico — primavera na cidade, frio nas montanhas</label>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <aside id="budget" aria-labelledby="budget-heading">
+      <div class="section-head-sm">
+        <span class="eyebrow">Padrão conforto</span>
+        <h2 id="budget-heading">Orçamento estimado</h2>
+      </div>
+      <div class="budget-cards" id="budget-cards"></div>
+    </aside>
+
+    <section id="itinerary" aria-labelledby="itinerary-heading">
+      <div class="section-head">
+        <span class="eyebrow">12 dias · Sugestões abertas</span>
+        <h2 id="itinerary-heading">Menu do roteiro</h2>
+        <p>O itinerário abaixo é um cardápio de possibilidades, não uma agenda fechada.</p>
+      </div>
+
+      <p class="menu-note">As hospedagens serão reservadas com antecedência, mas os dias são sugestões de menu abertas — para serem vividas no ritmo do casal, com espaço de sobra para desvios, sonecas e uma taça a mais de saperavi.</p>
+
+      <div class="route">
+
+        <div class="day">
+          <div class="day-marker">1–3</div>
+          <details class="day-card" open>
+            <summary>
+              <div class="day-heading">
+                <div class="day-range">Dias 1, 2 e 3</div>
+                <h3>Tbilisi — a charmosa capital</h3>
+              </div>
+              <svg class="chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </summary>
+            <div class="day-content">Explorar o centro histórico rústico, relaxar nas tradicionais casas de banho de enxofre em Abanotubani e mergulhar nas tabernas locais para descobrir os melhores khinkalis e khachapuris da cidade.</div>
+          </details>
+        </div>
+
+        <div class="day">
+          <div class="day-marker">4</div>
+          <details class="day-card">
+            <summary>
+              <div class="day-heading">
+                <div class="day-range">Dia 4</div>
+                <h3>Estrada Militar Georgiana</h3>
+              </div>
+              <svg class="chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </summary>
+            <div class="day-content">Deixar a capital rumo ao norte, com paradas livres na antiga capital espiritual Mtskheta e no imponente Castelo de Ananuri, subindo até as altas montanhas do Cáucaso. Pernoite em Kazbegi.</div>
+          </details>
+        </div>
+
+        <div class="day">
+          <div class="day-marker">5–7</div>
+          <details class="day-card">
+            <summary>
+              <div class="day-heading">
+                <div class="day-range">Dias 5, 6 e 7</div>
+                <h3>Vilarejos do Cáucaso &amp; natureza</h3>
+              </div>
+              <svg class="chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </summary>
+            <div class="day-content">Acordar de frente para os picos nevados, com três dias de folga para o ritmo das montanhas. Subir, conforme o clima, até a icônica Igreja da Trindade de Gergeti, explorar vilarejos intocados como Juta ou Sno e reservar uma tarde livre para trilhas curtas — ou simplesmente descansar com vista para o Kazbek.</div>
+          </details>
+        </div>
+
+        <div class="day">
+          <div class="day-marker">8</div>
+          <details class="day-card">
+            <summary>
+              <div class="day-heading">
+                <div class="day-range">Dia 8</div>
+                <h3>Signagi — a cidade do amor</h3>
+              </div>
+              <svg class="chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </summary>
+            <div class="day-content">Transição para a região leste. Hospedagem no vilarejo fortificado do século XVIII, famoso por suas ruelas de paralelepípedo, sacadas de madeira e vista deslumbrante do Vale de Alazani.</div>
+          </details>
+        </div>
+
+        <div class="day">
+          <div class="day-marker">9–11</div>
+          <details class="day-card">
+            <summary>
+              <div class="day-heading">
+                <div class="day-range">Dias 9, 10 e 11</div>
+                <h3>Rota do vinho em Kakheti</h3>
+              </div>
+              <svg class="chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </summary>
+            <div class="day-content">Três dias livres para visitar pequenas vinícolas familiares de qvevri — vinho milenar maturado sob a terra —, almoçar em fazendas locais, participar de workshops espontâneos de culinária rural e, se sobrar apetite, voltar à vinícola favorita do casal.</div>
+          </details>
+        </div>
+
+        <div class="day">
+          <div class="day-marker">12</div>
+          <details class="day-card">
+            <summary>
+              <div class="day-heading">
+                <div class="day-range">Dia 12</div>
+                <h3>Retorno a Tbilisi &amp; despedida</h3>
+              </div>
+              <svg class="chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </summary>
+            <div class="day-content">Últimas compras de queijos, vinhos e temperos no mercado local, e um jantar especial de encerramento da viagem.</div>
+          </details>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <section id="playlist" aria-labelledby="playlist-heading">
+    <div class="section-head">
+      <span class="eyebrow">Trilha sonora</span>
+      <h2 id="playlist-heading">Iberia — Achara</h2>
+      <p>Não dá para tocar a faixa embutida na página — eu não tenho os direitos da gravação para incluir o arquivo real. O que dá para fazer é abrir a faixa de verdade num clique:</p>
+    </div>
+    <div class="track-card">
+      <span class="track-art" aria-hidden="true">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M13 3v9.28a3 3 0 1 0 1 2.22V6l-6 1.2v6.08a3 3 0 1 0 1 2.22V4.2L13 3Z" fill="currentColor"/></svg>
+      </span>
+      <div class="track-card-body">
+        <div class="track-card-title">Iberia — Achara</div>
+        <div class="track-card-artist">Abra e ouça no seu tocador de preferência</div>
+        <div class="track-card-links">
+          <a class="track-link" id="track-spotify" href="#" target="_blank" rel="noopener noreferrer">Ouvir no Spotify ↗</a>
+          <a class="track-link secondary" id="track-youtube" href="#" target="_blank" rel="noopener noreferrer">Ouvir no YouTube ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>Planejamento vivo — ajustem conforme o Cáucaso mandar.</footer>
+</main>
+
+<script>
+  (function(){
+
+    /* ---------- Tabs ---------- */
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+    var panels = Array.prototype.slice.call(document.querySelectorAll('.panel'));
+
+    function activateTab(index){
+      tabs.forEach(function(tab, i){
+        var selected = i === index;
+        tab.setAttribute('aria-selected', String(selected));
+        tab.tabIndex = selected ? 0 : -1;
+        tab.classList.toggle('active', selected);
+      });
+      panels.forEach(function(panel, i){ panel.hidden = i !== index; });
+    }
+
+    tabs.forEach(function(tab, i){
+      tab.addEventListener('click', function(){ activateTab(i); });
+      tab.addEventListener('keydown', function(e){
+        var target = null;
+        if(e.key === 'ArrowRight') target = (i + 1) % tabs.length;
+        else if(e.key === 'ArrowLeft') target = (i - 1 + tabs.length) % tabs.length;
+        else if(e.key === 'Home') target = 0;
+        else if(e.key === 'End') target = tabs.length - 1;
+        if(target !== null){
+          e.preventDefault();
+          activateTab(target);
+          tabs[target].focus();
+        }
+      });
+    });
+
+    /* ---------- Checklist state + per-phase progress ---------- */
+    var STORAGE_KEY = "georgia-trip-checklist-v2";
+    var state = {};
+    try{ state = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}"); }catch(e){ state = {}; }
+
+    function updatePanelProgress(panel){
+      var boxes = panel.querySelectorAll('.chk');
+      var total = boxes.length, done = 0;
+      boxes.forEach(function(b){ if(b.checked) done++; });
+      var pct = total ? (done / total * 100) : 0;
+      panel.querySelector('.progress-label').textContent = done + ' de ' + total + ' concluídos';
+      panel.querySelector('.progress-fill').style.width = pct + '%';
+      var tabId = panel.getAttribute('data-panel');
+      var badge = document.querySelector('.tab[data-tab="' + tabId + '"] .tab-badge');
+      if(badge){
+        badge.textContent = done + '/' + total;
+        badge.classList.toggle('complete', total > 0 && done === total);
+      }
+    }
+
+    panels.forEach(function(panel){
+      var boxes = panel.querySelectorAll('.chk');
+      boxes.forEach(function(box){
+        var key = box.getAttribute('data-key');
+        if(state[key]){
+          box.checked = true;
+          box.closest('.check-row').classList.add('done');
+        }
+        box.addEventListener('change', function(){
+          state[key] = box.checked;
+          box.closest('.check-row').classList.toggle('done', box.checked);
+          try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }catch(e){}
+          updatePanelProgress(panel);
+        });
+      });
+      updatePanelProgress(panel);
+    });
+
+    /* ---------- Budget sidebar ---------- */
+    var ICONS = {
+      plane: '<path d="M2 11.5 18 4l-5.5 15-3-6.5L2 11.5Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>',
+      house: '<path d="M3 10 10 4l7 6M5 9v7h10V9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>',
+      glass: '<path d="M6 3h8l-1.2 6.2a2.8 2.8 0 0 1-5.6 0L6 3Zm4 9.2V17M7.5 17h5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>',
+      car: '<path d="M4.5 13 6 8.7A2 2 0 0 1 7.9 7.3h4.2A2 2 0 0 1 14 8.7L15.5 13M4 13h12v3H4v-3Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/><circle cx="6.5" cy="16" r="1" fill="currentColor"/><circle cx="13.5" cy="16" r="1" fill="currentColor"/>',
+      shield: '<path d="M10 2.5 16 4.5V9c0 4-2.6 7-6 8.5C6.6 16 4 13 4 9V4.5L10 2.5Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>'
+    };
+
+    var budget = [
+      { name: "Passagens aéreas", note: "O maior peso da viagem", low: 11000, high: 14000, mid: 12500, icon: "plane", tone: "olive" },
+      { name: "Hospedagem", note: "12 noites em guesthouses boutique", low: 4200, high: 5500, mid: 4850, icon: "house", tone: "terracotta" },
+      { name: "Gastronomia & vinhos", note: "12 dias livres — custo local muito em conta", low: 3000, high: 3800, mid: 3400, icon: "glass", tone: "grape" },
+      { name: "Transporte interno", note: "Bolt urbanos + GoTrip intermunicipal", low: 1800, high: 2400, mid: 2100, icon: "car", tone: "olive" },
+      { name: "Seguro & passeios", note: "Cobertura obrigatória, entradas e ingressos", low: 600, high: 900, mid: 750, icon: "shield", tone: "terracotta" }
+    ];
+    var maxMid = Math.max.apply(null, budget.map(function(b){ return b.mid; }));
+    var fmt = function(n){ return "R$ " + n.toLocaleString("pt-BR"); };
+
+    var cardsRoot = document.getElementById('budget-cards');
+    budget.forEach(function(b){
+      var card = document.createElement('div');
+      card.className = 'budget-card';
+      card.innerHTML =
+        '<span class="budget-icon icon-' + b.tone + '"><svg viewBox="0 0 20 20">' + ICONS[b.icon] + '</svg></span>' +
+        '<div class="budget-body">' +
+          '<div class="budget-name">' + b.name + '</div>' +
+          '<div class="budget-note">' + b.note + '</div>' +
+          '<div class="budget-value">' + fmt(b.low) + ' – ' + fmt(b.high) + '</div>' +
+          '<div class="budget-bar"><span style="width:' + (b.mid / maxMid * 100) + '%"></span></div>' +
+        '</div>';
+      cardsRoot.appendChild(card);
+    });
+
+    var total = document.createElement('div');
+    total.className = 'budget-total';
+    total.innerHTML = '<div class="label">Total estimado</div><div class="amount">~ R$ 26.000</div>';
+    cardsRoot.appendChild(total);
+
+    /* ---------- Track links (open the real recording in a new tab) ---------- */
+    var trackQuery = "Iberia Achara";
+    document.getElementById('track-spotify').href = 'https://open.spotify.com/search/' + encodeURIComponent(trackQuery);
+    document.getElementById('track-youtube').href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(trackQuery);
+
+  })();
+</script>
+</body>
+</html>
